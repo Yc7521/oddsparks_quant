@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>制作配方</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="theme-switcher" aria-label="主题切换">
+      <div class="theme-toggle" tabindex="0" title="主题">🎨</div>
+      <div class="theme-dots" role="menu" aria-hidden="true"></div>
+    </div>
+
+    <div class="card">
+      <h2>制作配方</h2>
+      <div class="row">
+        <label>建筑</label>
+        <div id="buildingPicker"></div>
+      </div>
+      <div class="row">
+        <label>温度</label>
+        <input type="text" id="tempture" class="small" value="0" />
+      </div>
+
+      <fieldset>
+        <legend>输入 (最多 3)</legend>
+        <div id="inputs"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>输出 (最多 3)</legend>
+        <div id="outputs"></div>
+      </fieldset>
+
+      <div class="row">
+        <label>耗时 (s)</label>
+        <input type="text" id="time" class="small" />
+      </div>
+      <div class="row">
+        <label>percent</label>
+        <input type="text" id="percent" class="small" value="100" />
+      </div>
+
+      <div class="row">
+        <button id="addRecipe" class="btn">追加配方</button>
+        <button id="importRecipes" class="btn btn-outline">重新载入配方</button>
+        <a href="index.html" class="btn btn-outline ml-12">返回</a>
+      </div>
+
+      <h3 class="mt-12">当前CSV</h3>
+      <textarea id="recipesCsv" readonly></textarea>
+    </div>
+  </div>
+
+  <script src="./lib/theme.js"></script>
+  <script>initTheme()</script>
+  <script type="module" src="make_recipe.js"></script>
+</body>
+</html>

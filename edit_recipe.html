@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>编辑配方</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="theme-switcher" aria-label="主题切换">
+      <div class="theme-toggle" tabindex="0" title="主题">🎨</div>
+      <div class="theme-dots" role="menu" aria-hidden="true"></div>
+    </div>
+
+    <div class="card">
+      <h1>编辑配方</h1>
+      <div class="row">
+        <button id="reloadBtn" class="btn">重新加载 CSV</button>
+        <button id="downloadBtn" class="btn btn-outline">下载 CSV</button>
+      </div>
+
+      <div class="grid-2col mt-12">
+        <div>
+          <label>建筑筛选: </label>
+          <div id="filterBuildingRoot" class="inline-middle"></div>
+        </div>
+        <div>
+          <label>相关物品: </label>
+          <input id="filterItem" placeholder="输入或输出包含该物品" />
+          <div id="filterItemPickerRoot" class="inline-middle ml-6"></div>
+          <button id="filterItemClear" type="button" class="btn btn-outline ml-6">清空</button>
+        </div>
+        <div>
+          <label>温度: </label>
+          <select id="filterTemp">
+            <option value="all">无筛选</option>
+            <option value="zero">等于 0</option>
+            <option value="positive">正</option>
+            <option value="negative">负</option>
+          </select>
+        </div>
+        <div>
+          <button id="resetFilters" class="btn btn-outline">重置筛选</button>
+        </div>
+      </div>
+
+      <div class="mt-12 overflow-auto card">
+        <table id="recipesTable">
+          <thead>
+            <tr>
+              <th>建筑名称</th>
+              <th>输出物(每分钟)</th>
+              <th>输入物(每分钟)</th>
+              <th>温度</th>
+              <th>单次制作百分比</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-12">CSV 预览</h3>
+      <textarea id="csvPreview" readonly></textarea>
+
+      <div id="modalRoot"></div>
+    </div>
+  </div>
+
+  <script src="./lib/theme.js"></script>
+  <script>initTheme()</script>
+  <script type="module" src="./edit_recipe.js"></script>
+</body>
+</html>

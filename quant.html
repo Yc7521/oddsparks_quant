@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>量化计算器</title>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="theme-switcher" aria-label="主题切换">
+      <div class="theme-toggle" tabindex="0" title="主题">🎨</div>
+      <div class="theme-dots" role="menu" aria-hidden="true"></div>
+    </div>
+
+    <div class="card">
+      <h2>量化计算器</h2>
+      <div class="row">
+        <label>主要输出</label>
+        <div id="itemPickerContainer"></div>
+        <label class="ml-12">目标 (每分钟)</label>
+        <input type="text" id="targetRate" class="small" />
+        <button id="addTargetRecipe" class="btn">选择配方</button>
+        <a href="index.html" class="btn btn-outline ml-12">返回</a>
+      </div>
+
+      <div class="row">
+        <label>已选配方</label>
+        <div id="selectedRecipes"></div>
+      </div>
+
+      <div class="row">
+        <label>计算结果</label>
+        <div id="calcResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./lib/theme.js"></script>
+  <script>initTheme()</script>
+  <script type="module" src="quant.js"></script>
+</body>
+</html>
