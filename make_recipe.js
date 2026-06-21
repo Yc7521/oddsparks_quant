@@ -39,7 +39,7 @@ function gatherForm(){
   obj.building = buildingDisplay ? buildingDisplay.textContent || '' : '';
   obj.tempture = document.getElementById('tempture').value || '0';
   if (ioRows) {
-    Object.assign(obj, ioRows.getValues());
+    Object.assign(obj, ioRows.getValue());
   }
   obj.time = document.getElementById('time').value || '';
   obj.percent = document.getElementById('percent').value || '100';
